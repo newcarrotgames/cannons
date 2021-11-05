@@ -1,0 +1,212 @@
+@font-face
+{
+    font-family: 'army';
+    src: url('army.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family: 'digital';
+    src: url('digital.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    color: #61443e;
+    font-family: army;
+    font-size:13px;
+    text-align:center;
+
+    background-color: #bfd1e5;
+    margin: 0px;
+    overflow: hidden;
+}
+
+#info {
+    font-family: army;
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    padding: 5px;
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+a {
+    color: #a06851;
+}
+
+#gui {
+    position: absolute;
+    bottom: 200px;
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    cursor: pointer;
+    display: none;
+}
+
+#debug {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.cross-hair {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -16px;
+    margin-left: -16px;
+    display: none;
+}
+
+#health-bar-container {
+    position: fixed;
+    top: 25px;
+    right: 100px;
+    height: 35px;
+    width: 300px;
+    border: 3px #DDD solid;
+    background: red;
+    -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px#888;
+    box-shadow: 0 0 5px #888;
+    display: none;
+}
+
+#health-bar {
+    height: 35px;
+    width: 300px;
+    background: green;
+    line-height: 35px;
+    font-size: 1.4em;
+    color: white;
+    overflow: hidden;
+    text-align: center;
+    display: none;
+}
+
+#power-bar-container {
+    position: fixed;
+    bottom: 125px;
+    left: 100px;
+    height: 500px;
+    width: 45px;
+    border: 2px #CCC solid;
+    background: darkblue;
+    -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px#888;
+    box-shadow: 0 0 5px #888;
+    display: none;
+}
+
+#power-bar {
+    position: relative;
+    height: 0px;
+    width: 45px;
+    background: darkred;
+    color: white;
+    overflow: hidden;
+    text-align: center;
+    display: none;
+}
+
+#turn-buttons {
+    display: none;
+}
+
+.turn-shoot {
+    position: absolute;
+    top: 100px;
+    left: 60%;
+    width: 200px;
+    height: 120px;
+    line-height: 120px;
+}
+
+.turn-move {
+    position: absolute;
+    top: 100px;
+    left: 30%;
+    width: 200px;
+    height: 120px;
+    line-height: 120px;
+}
+
+.turn-button {
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    background-color: rgba(219,87,5,1);
+    font-weight: 700;
+    font-size: 2.4em;
+    display: block;
+    padding: 4px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    margin: 100px auto;
+    width: 160px;
+    text-align: center;
+    font-family: army;
+    -webkit-transition: all .1s ease;
+    -moz-transition: all .1s ease;
+    -ms-transition: all .1s ease;
+    -o-transition: all .1s ease;
+    transition: all .1s ease;
+    cursor: pointer;
+}
+
+#turn-clock {
+    font-family: digital;
+    position: fixed;
+    top: 125px;
+    right: 50px;
+    height: 90px;
+    width: 100px;
+    background: red;
+    -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px#888;
+    box-shadow: 0 0 5px #888;
+    color: #FFF;
+    font-size: 6.8em;
+    text-align: center;
+    display: none;
+}
+
+#radar {
+    position: fixed;
+    bottom: 125px;
+    right: 50px;
+    -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px#888;
+    box-shadow: 0 0 5px #888;
+    border: 1px solid red;
+}
+
+#get-pointer-lock {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    cursor: pointer;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link href="css/cannon.css" rel="stylesheet" />
+        <script src="js/enum.js"></script>
+        <script src="js/three.js"></script>
+        <script src="js/cannons.js"></script>
+        <script src="js/util.js"></script>
+        <script src="js/ImprovedNoise.js"></script>
+        <script src="js/perlin.js"></script>
+        <script src="js/land.js"></script>
+        <script src="js/Detector.js"></script>
+        <script src="js/libs/stats.min.js"></script>
+        <script src="js/debug.js"></script>
+        <script src="js/world.js"></script>
+        <script src="js/player.js"></script>
+        <script src="js/entity.js"></script>
+        <script src="js/tank.js"></script>
+        <script src="js/entities.js"></script>
+        <script src="js/explosion.js"></script>
+        <script src="js/FirstPersonControls.js"></script>
+        <script src="js/TankControls.js"></script>
+        <script src="js/gui.js"></script>
+        <script src="js/aitank.js"></script>
+        <script src="js/statemanager.js"></script>
+	</head>
+	<body onload="main()">
+    <!-- splash -->
+    <div id="container"><br /><br /><br /><br /><br />Generating world...</div>
+    <div id="info">Welcome to Cannons<br/>
+        WASD/arrow keys move<br/>
+        mouse look<br/>
+        <br/>Click to Play</div>
+    <!-- gui -->
+    <img src="textures/ch.png" class="cross-hair" id="tank-ch" />
+    <img src="textures/pch.png" class="cross-hair" id="player-ch" />
+    <div id="gui"></div>
+    <div id="health-bar-container">
+        <div id="health-bar"></div>
+    </div>
+    <div id="power-bar-container">
+        <div id="power-bar"></div>
+    </div>
+
+    <!-- turn selection -->
+    <div id="turn-buttons">
+        <div id="turn-button-shoot" class="turn-shoot turn-button">Shoot</div>
+        <div id="turn-button-move" class="turn-move turn-button">Move</div>
+    </div>
+
+    <!-- debug -->
+    <div id="debug">---</div>
+	</body>
+
+    <!-- turn clock -->
+    <div id="turn-clock"></div>
+
+    <canvas id="radar" width="256" height="256">Your browser does not support the HTML5 canvas tag.</canvas>
+
+    <div id="get-pointer-lock">------------</div>
+</html>
