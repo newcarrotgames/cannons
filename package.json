@@ -1,0 +1,24 @@
+{
+  "name": "cannons",
+  "version": "1.0.0",
+  "description": "Minecraft/Scorched Earth mashup using 3js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newcarrotgames/cannons.git"
+  },
+  "author": "New Carrot Games",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/newcarrotgames/cannons/issues"
+  },
+  "homepage": "https://github.com/newcarrotgames/cannons#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "three": "^0.134.0"
+  }
+}

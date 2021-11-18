@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Cannons: New Carrot Games</title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            cursor: none !important;
+        }
+
+        body {
+            overflow: hidden;
+            margin: 0px;
+        }
+
+        #debug {
+            border: 2px solid #333;
+            position: absolute;
+            bottom: 0px;
+            height: 50px;
+            background-color: #000;
+            width: 100%;
+            opacity: 0.5;
+            color: #FFF;
+            padding: 4px;
+        }
+    </style>
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "./build/three.module.js",
+            "three/examples/jsm/controls/FlyControls.js":"./jsm/controls/FlyControls.js",
+            "three/examples/jsm/libs/stats.module":"./jsm/libs/stats.module.js",
+            "three/examples/jsm/libs/dat.gui.module":"./jsm/libs/dat.gui.module.js",
+            "three/examples/jsm/loaders/GLTFLoader.js":"./jsm/loaders/GLTFLoader.js",
+            "three/examples/jsm/math/ImprovedNoise.js":"./jsm/math/ImprovedNoise.js"
+          }
+        }
+    </script>
+</head>
+
+<body>
+    <script type="module" src="newworld/client.js"></script>
+    <div id="debug"></div>
+</body>
+
+</html>
