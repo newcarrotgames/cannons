@@ -1,9 +1,10 @@
 import * as THREE from 'three';
-import { FlyControls } from 'three/examples/jsm/controls/FlyControls.js';
 import Stats from 'three/examples/jsm/libs/stats.module';
 import { World } from './world.js';
+import { Controls } from './controls.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
-const X_DIR = 0, Y_DIR = 1, Z_DIR = 2, CHUNK_SIZE = [16, 64, 16];
+const X_DIR = 0, Y_DIR = 1, Z_DIR = 2, CHUNK_SIZE = [16, 16, 16];
 
 class Service {
     constructor(scene, camera) {
@@ -11,7 +12,7 @@ class Service {
         this.scene = scene;
         this.camera = camera;
         this.renderer = new THREE.WebGLRenderer();
-        this.controls = new FlyControls(camera, this.renderer.domElement);
+        this.controls = new Controls(camera, this.renderer.domElement, this.checkPos);
         this.controls.movementSpeed = 400;
         this.controls.rollSpeed = 1;
         
@@ -33,6 +34,10 @@ class Service {
         );
 
         this.entities = [];
+    }
+
+    checkPos = (pos) => {
+
     }
 
     render = () => {
@@ -121,7 +126,28 @@ window.onload = () => {
     });
 
     // lock pointer
-    setTimeout(() => document.body.requestPointerLock(), 5000);
+    // setTimeout(() => document.body.requestPointerLock(), 5000);
+
+    // build tank
+    s.register((scene) => {
+        const loader = new GLTFLoader();
+        return new Promise((resolve, reject) => {
+            loader.load("models/tank1/tank1.gltf",
+                function (gltf) {
+                    scene.add(gltf.scene);
+                    gltf.scene.position.y = 250;
+                    resolve(gltf.scene);
+                },
+                function (xhr) {
+                    console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+                },
+                function (error) {
+                    console.error("An error happened: ", error);
+                    reject(error);
+                }
+            );
+        });
+    });
 
     s.start();
 

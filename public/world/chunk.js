@@ -6,7 +6,7 @@ export class Chunk {
 
     constructor(size, pos, noise) {
         this.size = size;
-        this.halfSize = size[0] / 2;
+        this.halfHeight = size[1] / 2;
         this.pos = pos;
         this.noise = noise;
     }
@@ -28,6 +28,12 @@ export class Chunk {
 
     setBlockAt(pos, val) {
         this.data[this.getBlockIndex(pos)] = val;
+    }
+
+    getY(x, z) {
+        const worldX = this.pos[0] * this.size[0] + x;
+        const worldZ = this.pos[1] * this.size[2] + z;
+        return this.noise.getY(worldX, worldZ);
     }
 
     generate(scene) {
@@ -65,17 +71,17 @@ export class Chunk {
         const geometries = [];
         for (let z = 0; z < this.size[2]; z++) {
             for (let x = 0; x < this.size[0]; x++) {
-                const h = this.noise.getY(x, z);
+                const h = this.halfHeight + this.getY(x, z);
                 for (let y = 0; y < h; y++) {
                     matrix.makeTranslation(
-                        x * 100 - this.halfSize * 100,
-                        y * 100,
-                        z * 100 - this.halfSize * 100
+                        x * 100,
+                        (y - this.halfHeight) * 100,
+                        z * 100
                     );
-                    const px = this.noise.getY(x + 1, z);
-                    const nx = this.noise.getY(x - 1, z);
-                    const pz = this.noise.getY(x, z + 1);
-                    const nz = this.noise.getY(x, z - 1);
+                    const px = this.getY(x + 1, z);
+                    const nx = this.getY(x - 1, z);
+                    const pz = this.getY(x, z + 1);
+                    const nz = this.getY(x, z - 1);
                     geometries.push(pyGeometry.clone().applyMatrix4(matrix));
                     if ((px !== y && px !== y + 1) || x === 0) {
                         geometries.push(pxGeometry.clone().applyMatrix4(matrix));
